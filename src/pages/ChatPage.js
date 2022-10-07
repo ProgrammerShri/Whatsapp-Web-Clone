@@ -4,9 +4,9 @@ const ChatPage = () => {
   return (
     <div className="w-full h-screen bg-primary-green">
       <div className="w-[97%] m-auto flex pt-6">
-        <div className="w-[40rem] bg-gray-300 py-2 ">
+        <div className="w-[40rem] bg-light-gray py-2 ">
           {/* Header  */}
-          <div className="w-full py-4 flex justify-between items-center px-4 ">
+          <div className="w-full py-4 flex justify-between items-center px-4 mb-1">
             <div className="flex w-1/3">
               <Avatar />
             </div>
@@ -25,7 +25,7 @@ const ChatPage = () => {
                 <input
                   type="text"
                   placeholder="Search…"
-                  className="input w-full h-8 my-2 bg-gray-300"
+                  className="input w-full h-8 my-2 bg-light-gray"
                 />
               </div>
             </div>
@@ -35,43 +35,17 @@ const ChatPage = () => {
           {/* ChatList  */}
 
           <div className="h-[34rem] overflow-x-hidden overflow-y-auto ">
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
-            <div className="py-6 border border-b">HELLO</div>
+            {[
+              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+              20,
+            ].map((item) => (
+              <ChatList className="hover:bg-light-gray py-4 bg-white border-b flex justify-between items-center px-4 cursor-pointer" />
+            ))}
           </div>
         </div>
 
-        <div className="w-full bg-gray-300 py-2 border-l border-primary-gray">
-          <div className="w-full py-4 flex justify-between items-center px-4 ">
+        <div className="w-full bg-light-gray py-2 border-l  border-primary-gray ">
+          <div className="w-full py-4 flex justify-between items-center px-4 border-b">
             <div className="flex space-x-4 items-center ">
               <Avatar />
               <div className="flex flex-col text-left">
@@ -91,6 +65,27 @@ const ChatPage = () => {
 };
 
 export default ChatPage;
+
+const ChatList = ({ ...props }) => {
+  return (
+    <div {...props}>
+      <div className="flex space-x-6">
+        <Avatar />
+        <div className="flex flex-col text-left space-y-1">
+          <h3 className="text-sm font-bold">Name</h3>
+          <p className="text-xs">Last Message</p>
+        </div>
+      </div>
+
+      <div className="flex flex-col justify-between items-center space-y-1">
+        <p className="text-xs">{new Date().toLocaleTimeString()}</p>
+        <div className="flex justify-center items-center bg-primary-green text-white rounded-full w-5 h-5">
+          <p className="text-xs">1</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Avatar = ({ ...props }) => {
   return (
@@ -175,7 +170,7 @@ const NewChatIcon = ({ ...props }) => {
 
 const SearchIcon = ({ ...props }) => {
   return (
-    <span className="cursor-pointer my-2  bg-gray-300" {...props}>
+    <span className="cursor-pointer my-2  bg-light-gray" {...props}>
       <svg viewBox="0 0 24 24" width={24} height={24} className>
         <path
           fill="currentColor"
@@ -188,13 +183,13 @@ const SearchIcon = ({ ...props }) => {
 
 const DownArrowIcon = ({ ...props }) => {
   return (
-    <span className="cursor-pointer" {...props}>
+    <span {...props}>
       <svg
         viewBox="0 0 24 24"
         width={20}
         height={20}
         preserveAspectRatio="xMidYMid meet"
-        className
+        className="cursor-pointer"
       >
         <path
           fill="currentColor"
