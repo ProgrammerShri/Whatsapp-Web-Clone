@@ -1,13 +1,10 @@
 import "./App.css";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-
-      <div>
-        <button className="btn">Hello daisyUI</button>
-      </div>
+      <LandingPage />
     </div>
   );
 }
