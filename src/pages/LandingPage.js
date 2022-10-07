@@ -54,7 +54,7 @@ const LandingPage = () => {
 
               <div className="mt-10">
                 <a
-                  href="!#"
+                  href="#!"
                   rel="noopener noreferrer"
                   className="text-sm text-primary-green"
                 >
