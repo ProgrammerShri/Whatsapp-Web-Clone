@@ -1,7 +1,7 @@
 import React from "react";
 import WhatsappIcon from "../assets/images/whatsapp-icon.png";
 
-const Loader = ({ value }) => {
+const LoaderPage = ({ value }) => {
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center text-gray-500">
       <img src={WhatsappIcon} alt="logo" className="w-20 grayscale" />
@@ -30,4 +30,4 @@ const Loader = ({ value }) => {
   );
 };
 
-export default Loader;
+export default LoaderPage;

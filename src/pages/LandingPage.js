@@ -4,8 +4,15 @@ import BaseText from "../components/Basics/Texts/BaseText";
 import MutedText from "../components/Basics/Texts/MutedText";
 import QRCode from "../assets/images/qr-code.png";
 import WhatsappVideo from "../assets/images/whatsapp-video.png";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  let navigate = useNavigate();
+
+  const handleWhatsappClick = () => {
+    console.log("Whatsapp Clicked");
+    navigate("/messages");
+  };
   return (
     <>
       <div className="relative w-full">
@@ -58,6 +65,10 @@ const LandingPage = () => {
 
             <img src={QRCode} className="w-64 h-64 min-w-64  border " />
           </div>
+
+          <button className="btn btn-sm" onClick={handleWhatsappClick}>
+            Continue with WhatsApp Web
+          </button>
 
           <div className="absolute bottom-0 left-0 right-0 bg-gray-50 py-10 mt-10">
             <img src={WhatsappVideo} className="w-3/5 m-auto" />

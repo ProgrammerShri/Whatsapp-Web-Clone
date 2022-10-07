@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Loader from "./components/Loader";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoaderPage from "./pages/LoaderPage";
 import LandingPage from "./pages/LandingPage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   const { loading, value } = useProgress();
 
-  if (true) {
-    return <Loader value={value} />;
+  if (loading) {
+    return <LoaderPage value={value} />;
   }
 
   return (
     <div className="App">
-      <LandingPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/messages" element={<ChatPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
