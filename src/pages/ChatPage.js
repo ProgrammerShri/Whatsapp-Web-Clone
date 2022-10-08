@@ -101,19 +101,19 @@ const ChatPage = () => {
                 <ChatList
                   item={item}
                   key={item.id}
-                  className="hover:bg-light-gray py-4 bg-white border-b flex justify-between items-center px-4 cursor-pointer"
+                  className="hover:bg-light-gray py-3 bg-white border-b flex justify-between items-center px-4 cursor-pointer"
                 />
               );
             })}
           </div>
         </div>
 
-        <div className="w-full bg-light-gray py-2 border-l  border-primary-gray ">
+        <div className="w-full bg-light-gray py-1 border-l  border-primary-gray">
           <div className="w-full py-4 flex justify-between items-center px-4 border-b">
             <div className="flex space-x-4 items-center ">
               <Avatar />
               <div className="flex flex-col text-left">
-                <h1 className=" font-bold">John </h1>
+                <h1 className="text-lg">John </h1>
                 <p className="text-sm text-primary-green">Online</p>
               </div>
             </div>
