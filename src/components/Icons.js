@@ -57,7 +57,7 @@ export const Avatar = ({ ...props }) => {
       <img
         // src="https://www.w3schools.com/howto/img_avatar.png"
         src="https://www.picsum.photos/200"
-        className="w-10 h-10 rounded-full"
+        className="w-12 h-12 rounded-full"
         alt="avatar"
       />
     </div>

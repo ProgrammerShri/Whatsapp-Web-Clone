@@ -32,9 +32,13 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-primary-green">
-      <div className="w-[97%] m-auto flex pt-6">
-        <div className="w-[40rem] bg-light-gray py-2 ">
+    <div className="w-full h-screen overflow-hidden">
+      <div className="bg-primary-green h-[6.8rem] absolute -z-10 w-full"></div>
+      <div className="bg-light-gray h-auto top-[6.8rem] absolute -z-10 w-full"></div>
+      <div className="w-[98%] h-auto m-auto flex pt-6 shadow-2xl overflow-hidden">
+        {/* Left Side  */}
+
+        <div className="w-[40rem] bg-light-gray">
           {/* Header  */}
           <div className="w-full py-4 flex justify-between items-center px-4 mb-1">
             <div className="flex w-1/3">
@@ -94,7 +98,6 @@ const ChatPage = () => {
           </div>
 
           {/* ChatList  */}
-
           <div className="h-[34rem] overflow-x-hidden overflow-y-auto ">
             {filterChats?.map((item) => {
               return (
@@ -108,8 +111,10 @@ const ChatPage = () => {
           </div>
         </div>
 
-        <div className="w-full bg-light-gray py-1 border-l  border-primary-gray">
-          <div className="w-full py-4 flex justify-between items-center px-4 border-b">
+        {/* Right Side */}
+
+        <div className="w-full bg-white py-1 border-l  border-primary-gray">
+          <div className="w-full py-4 flex justify-between items-center px-4 border-b bg-light-gray">
             <div className="flex space-x-4 items-center ">
               <Avatar />
               <div className="flex flex-col text-left">
