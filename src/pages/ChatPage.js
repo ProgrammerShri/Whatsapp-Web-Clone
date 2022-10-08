@@ -14,10 +14,17 @@ import LoaderPage from "./LoaderPage";
 
 const ChatPage = () => {
   const { loading, value } = useProgress();
+  const [input, setInput] = React.useState("");
 
   if (loading) {
     return <LoaderPage value={value} />;
   }
+
+  const filterChats = data.filter((item) => {
+    return item.name.toLowerCase().includes(input.toLowerCase());
+  });
+
+  console.log(filterChats);
 
   return (
     <div className="w-full h-screen bg-primary-green">
@@ -44,6 +51,8 @@ const ChatPage = () => {
                   type="text"
                   placeholder="Search…"
                   className="input w-full h-8 my-2 bg-light-gray"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
                 />
               </div>
             </div>
@@ -53,7 +62,7 @@ const ChatPage = () => {
           {/* ChatList  */}
 
           <div className="h-[34rem] overflow-x-hidden overflow-y-auto ">
-            {data?.map((item) => {
+            {filterChats?.map((item) => {
               return (
                 <ChatList
                   item={item}
@@ -70,8 +79,8 @@ const ChatPage = () => {
             <div className="flex space-x-4 items-center ">
               <Avatar />
               <div className="flex flex-col text-left">
-                <h1 className=" font-bold">John Doe</h1>
-                <p className="text-sm">Active now</p>
+                <h1 className=" font-bold">John </h1>
+                <p className="text-sm text-primary-green">Online</p>
               </div>
             </div>
             <div className="flex space-x-6 items-center ">

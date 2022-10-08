@@ -14,9 +14,11 @@ const ChatList = ({ item, ...props }) => {
 
       <div className="flex flex-col justify-between items-center space-y-1">
         <p className="text-xs">{time}</p>
-        <div className="flex justify-center items-center bg-primary-green text-white rounded-full w-5 h-5">
-          <p className="text-xs"> {unread} </p>
-        </div>
+        {unread > 0 && (
+          <div className="flex justify-center items-center bg-primary-green text-white rounded-full w-5 h-5">
+            <p className="text-xs"> {unread} </p>
+          </div>
+        )}
       </div>
     </div>
   );
