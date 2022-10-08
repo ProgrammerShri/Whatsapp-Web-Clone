@@ -40,3 +40,8 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+input {
+  outline: none !important;
+}
