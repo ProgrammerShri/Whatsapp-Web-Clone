@@ -66,8 +66,11 @@ const LandingPage = () => {
             <img src={QRCode} className="w-64 h-64 min-w-64  border " />
           </div>
 
-          <button className="btn btn-sm" onClick={handleWhatsappClick}>
-            Continue with WhatsApp Web
+          <button
+            className="btn btn-sm absolute z-10 top-30 left-0 right-0 w-fit h-fit m-auto"
+            onClick={handleWhatsappClick}
+          >
+            Login
           </button>
 
           <div className="absolute bottom-0 left-0 right-0 bg-gray-50 py-10 mt-10">

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ChatList from "../components/ChatList";
 import {
   Avatar,
@@ -14,7 +15,9 @@ import LoaderPage from "./LoaderPage";
 
 const ChatPage = () => {
   const { loading, value } = useProgress();
+  const navigate = useNavigate();
   const [input, setInput] = React.useState("");
+  const [options, setOptions] = React.useState(false);
 
   if (loading) {
     return <LoaderPage value={value} />;
@@ -24,7 +27,9 @@ const ChatPage = () => {
     return item.name.toLowerCase().includes(input.toLowerCase());
   });
 
-  console.log(filterChats);
+  const moreOptions = () => {
+    setOptions(!options);
+  };
 
   return (
     <div className="w-full h-screen bg-primary-green">
@@ -35,10 +40,39 @@ const ChatPage = () => {
             <div className="flex w-1/3">
               <Avatar />
             </div>
-            <div className="flex justify-between items-center w-1/3">
+            <div className="flex justify-between items-center w-1/3 relative">
               <StatusIcon />
               <NewChatIcon />
-              <VerticleDotIcon />
+              <VerticleDotIcon onClick={moreOptions} />
+              {options && (
+                <div className="absolute z-10 top-10 right-0 bg-white w-40 h-fit rounded-md shadow-lg border-2">
+                  <div className="flex flex-col justify-center items-start space-y-1 text-left">
+                    {[
+                      "New Group",
+                      "New Broadcast",
+                      "WhatsApp Web",
+                      "Starred Messages",
+                      "Settings",
+                    ].map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center space-x-2 hover:bg-light-gray w-full cursor-pointer p-2"
+                      >
+                        <p className="text-sm">{item}</p>
+                      </div>
+                    ))}
+                    <p
+                      className="text-sm flex items-center space-x-2 hover:bg-light-gray w-full  cursor-pointer p-2 border-t"
+                      onClick={() => {
+                        navigate("/");
+                        setOptions(false);
+                      }}
+                    >
+                      LogOut
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
