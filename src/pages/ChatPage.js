@@ -2,12 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import ChatList from "../components/ChatList";
 import {
+  AttachmentIcon,
   Avatar,
   DownArrowIcon,
+  EmojiIcon,
   NewChatIcon,
   SearchIcon,
+  SendArrowIcon,
   StatusIcon,
   VerticleDotIcon,
+  VoiceMicIcon,
 } from "../components/Icons";
 import { data } from "../data";
 import { useProgress } from "../hooks/useProgress";
@@ -18,6 +22,7 @@ const ChatPage = () => {
   const navigate = useNavigate();
   const [input, setInput] = React.useState("");
   const [options, setOptions] = React.useState(false);
+  const [textMsg, setTextMsg] = React.useState("");
 
   if (loading) {
     return <LoaderPage value={value} />;
@@ -125,6 +130,30 @@ const ChatPage = () => {
             <div className="flex space-x-6 items-center ">
               <SearchIcon />
               <VerticleDotIcon />
+            </div>
+          </div>
+
+          {/* Chat  */}
+          <div className="bg-white relative w-full h-full ">
+            <div className="flex justify-between items-center border bg-light-gray px-2 absolute bottom-[4.8rem] left-0 right-0   w-full ">
+              <div className="form-control w-full">
+                <div className="input-group w-full">
+                  <EmojiIcon className="bg-light-gray" />
+                  <AttachmentIcon className="bg-light-gray" />
+                  <input
+                    type="text"
+                    placeholder="Search…"
+                    className="input w-full h-8 my-2 bg-white rounded-md"
+                    value={textMsg}
+                    onChange={(e) => setTextMsg(e.target.value)}
+                  />
+                </div>
+              </div>
+              {textMsg.length > 0 ? (
+                <SendArrowIcon className="pl-2" />
+              ) : (
+                <VoiceMicIcon className="pl-2" />
+              )}
             </div>
           </div>
         </div>
