@@ -7,7 +7,7 @@ const LoaderPage = ({ value }) => {
       <img src={WhatsappIcon} alt="logo" className="w-20 grayscale" />
 
       <progress
-        className="progress w-96 h-0.5 my-10 bg-gray-300"
+        className="progress progress-success w-96 h-0.5 my-10 bg-gray-300"
         value={value}
         max="100"
       ></progress>
