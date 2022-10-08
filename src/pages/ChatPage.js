@@ -8,6 +8,7 @@ import {
   StatusIcon,
   VerticleDotIcon,
 } from "../components/Icons";
+import { data } from "../data";
 import { useProgress } from "../hooks/useProgress";
 import LoaderPage from "./LoaderPage";
 
@@ -52,12 +53,15 @@ const ChatPage = () => {
           {/* ChatList  */}
 
           <div className="h-[34rem] overflow-x-hidden overflow-y-auto ">
-            {[
-              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-              20,
-            ].map((item) => (
-              <ChatList className="hover:bg-light-gray py-4 bg-white border-b flex justify-between items-center px-4 cursor-pointer" />
-            ))}
+            {data?.map((item) => {
+              return (
+                <ChatList
+                  item={item}
+                  key={item.id}
+                  className="hover:bg-light-gray py-4 bg-white border-b flex justify-between items-center px-4 cursor-pointer"
+                />
+              );
+            })}
           </div>
         </div>
 
