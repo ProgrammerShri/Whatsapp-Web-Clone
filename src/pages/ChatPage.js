@@ -138,21 +138,21 @@ const ChatPage = () => {
             <div className="flex justify-between items-center border bg-light-gray px-2 absolute bottom-[4.8rem] left-0 right-0   w-full ">
               <div className="form-control w-full">
                 <div className="input-group w-full">
-                  <EmojiIcon className="bg-light-gray" />
-                  <AttachmentIcon className="bg-light-gray" />
+                  <EmojiIcon className="bg-light-gray cursor-pointer" />
+                  <AttachmentIcon className="bg-light-gray cursor-pointer" />
                   <input
                     type="text"
                     placeholder="Search…"
-                    className="input w-full h-8 my-2 bg-white rounded-md"
+                    className="input w-full h-10 my-2 bg-white rounded-md"
                     value={textMsg}
                     onChange={(e) => setTextMsg(e.target.value)}
                   />
                 </div>
               </div>
               {textMsg.length > 0 ? (
-                <SendArrowIcon className="pl-2" />
+                <SendArrowIcon className="p-4 cursor-pointer" />
               ) : (
-                <VoiceMicIcon className="pl-2" />
+                <VoiceMicIcon className="p-4 cursor-pointer" />
               )}
             </div>
           </div>
